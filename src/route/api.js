@@ -24,4 +24,12 @@ router.post("/updateToDo/:id",AuthMiddleware,ToDoController.updateToDo);
 router.post("/updateToDoStatus/:id/:status",AuthMiddleware,ToDoController.updateToDoStatus);
 router.delete("/deleteToDo/:id",AuthMiddleware,ToDoController.deleteToDo);
 
+// Product api end point
+router.post("/createProduct",ProductController.createProduct);
+router.get("/selectProductById/:id",ProductController.selectProductById);
+router.delete("/deleteProductById/:id",ProductController.deleteProductById);
+router.post("/updateProductById/:id",ProductController.updateProductById);
+
+
+
 module.exports = router;
