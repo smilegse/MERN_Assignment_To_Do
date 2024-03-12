@@ -7,7 +7,7 @@ const SendEmailUtility = async (EmailTo, EmailText, EmailSubject) =>{
         port: 25,
         secure: false,
         auth: {
-            user: 'info@teamrabbilcom',
+            user: 'info@teamrabbil.com',
             pass: '~sR4[bhaC[Qs'
         },tls:{
             rejectUnauthorized: false
