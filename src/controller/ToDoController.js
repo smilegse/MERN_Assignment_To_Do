@@ -38,6 +38,18 @@ exports.updateToDo = async (req, res)=>{
     }
 }
 
+
+exports.updateToDoStatus = async (req, res)=>{
+    try {
+        let email=req.headers['email'];
+        let {id,status} = req.params;
+        await ToDoModel.updateOne({_id:id,email:email},{status: status});
+        res.json({status:"success", message: "To Do Update Completed"});
+    } catch (error) {
+        res.json({status:"fail", message:error})
+    }
+}
+
 exports.deleteToDo = async (req, res)=>{
     try {
         let email=req.headers['email'];
