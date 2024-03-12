@@ -21,6 +21,7 @@ router.post("/profileUpdate",AuthMiddleware,UserController.profileUpdate);
 router.get("/selectToDos",AuthMiddleware,ToDoController.selectToDos);
 router.post("/createToDo",AuthMiddleware,ToDoController.createToDo);
 router.post("/updateToDo/:id",AuthMiddleware,ToDoController.updateToDo);
+router.post("/updateToDoStatus/:id",AuthMiddleware,ToDoController.updateToDoStatus);
 router.delete("/deleteToDo/:id",AuthMiddleware,ToDoController.deleteToDo);
 
 module.exports = router;
