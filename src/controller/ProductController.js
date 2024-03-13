@@ -29,7 +29,8 @@ const updateProduct = {
 exports.createProduct = async (req, res)=>{
     try {
         let reqBody = req.body;
-        await ProductModel.create(newProduct);
+        //await ProductModel.create(newProduct);
+        await ProductModel.create(reqBody);
         res.json({status:"success", message: "Product Created"});
 
     } catch (error) {
@@ -39,9 +40,17 @@ exports.createProduct = async (req, res)=>{
 
 exports.selectProductById = async (req, res)=>{
     try {
-        
-        let { id } = req.params;
+                let { id } = req.params;
         let result = await ProductModel.find({_id: id});
+        res.json({status:"success", data: result});
+    } catch (error) {
+        res.json({status:"fail", message:error})
+    }
+}
+
+exports.selectProducts = async (req, res)=>{
+    try {
+        let result = await ProductModel.find();
         res.json({status:"success", data: result});
     } catch (error) {
         res.json({status:"fail", message:error})
@@ -63,7 +72,6 @@ exports.updateProductById = async (req, res)=>{
     try {
         let { id } = req.params;
         let reqBody = req.body;
-        //await ProductModel.updateOne({_id:id},updateProduct);
         await ProductModel.updateOne({_id:id},reqBody);
         res.json({status:"success", message: "Product Update Completed"});
     } catch (error) {

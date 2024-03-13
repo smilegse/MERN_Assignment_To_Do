@@ -2,6 +2,7 @@ const express = require('express');
 const UserController = require('../controller/UserController');
 const ToDoController = require('../controller/ToDoController');
 const AuthMiddleware = require('../middleware/AuthMiddleware');
+const ProductController = require('../controller/ProductController')
 
 const router=express.Router();
 
@@ -26,6 +27,7 @@ router.delete("/deleteToDo/:id",AuthMiddleware,ToDoController.deleteToDo);
 
 // Product api end point
 router.post("/createProduct",ProductController.createProduct);
+router.get("/selectProducts",ProductController.selectProducts);
 router.get("/selectProductById/:id",ProductController.selectProductById);
 router.delete("/deleteProductById/:id",ProductController.deleteProductById);
 router.post("/updateProductById/:id",ProductController.updateProductById);
